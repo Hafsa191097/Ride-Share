@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "727277819005",
+    "project_id": "ride-share-e2e3e",
+    "storage_bucket": "ride-share-e2e3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727277819005:android:92d4847879405832d94d14",
+        "android_client_info": {
+          "package_name": "com.example.ride_share"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727277819005-klh46gj013g23ttbfh602tn186i65u8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB04M-pb1uPDCu_lKQVvpqc12xE7cIPoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727277819005-klh46gj013g23ttbfh602tn186i65u8h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727277819005:android:5d011175564218fad94d14",
+        "android_client_info": {
+          "package_name": "com.example.rideshare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727277819005-klh46gj013g23ttbfh602tn186i65u8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB04M-pb1uPDCu_lKQVvpqc12xE7cIPoM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727277819005-klh46gj013g23ttbfh602tn186i65u8h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
