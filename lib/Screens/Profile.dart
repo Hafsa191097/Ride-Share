@@ -2,38 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../Authentication_Classes/loginWithGoogle_Controller.dart';
+import '../model_classes/signup_model.dart';
+import 'SignIn.dart';
 
-class Profile extends StatelessWidget {
+
+class Profile extends StatefulWidget {
   const Profile({super.key});
 
   @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  @override
   Widget build(BuildContext context) {
     
-  final google_controller =Get.put(LoginController());
-    return GetMaterialApp(
-      home: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          CircleAvatar(
-            backgroundImage: Image.network( '').image,
-            radius: 100,
-          ),
-          Text('hafsa',
-            style: Get.textTheme.headlineMedium,
-          ),
-          Text( '',
-            style: Get.textTheme.bodyMedium,
-          ),
-          SizedBox(height: 16,),
-           ActionChip(
-            avatar:const Icon(Icons.logout),
-            label:const Text('Logout'),
-            onPressed: (){
-              google_controller.logout();
-            },
-          ),
-        ],
+    return Center(
+      child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CircleAvatar(
+              radius: 100,
+            ),
+            Text('hafsa',
+            ),
+            Text( '',
+            ),
+            SizedBox(height: 16,),
+             ActionChip(
+              avatar:const Icon(Icons.logout),
+              label:const Text('Logout'),
+              onPressed: (){
+                setState(() {
+                  SignUp_model.instance.logout();
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (_) => const SignIn()), 
+                  );
+                });
+              },
+            ),
+          ],
       ),
     );
   }

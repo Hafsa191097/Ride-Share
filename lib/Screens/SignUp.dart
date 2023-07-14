@@ -6,7 +6,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ride_share/Screens/registration.dart';
 import 'package:ride_share/Screens/SignIn.dart';
 import 'package:ride_share/Common_Widgets/header.dart';
-import '../Authentication_Classes/loginWithGoogle_Controller.dart';
 import '../model_classes/signup_model.dart';
 import 'HomeScreen.dart';
 import 'Take_phone.dart';
@@ -19,8 +18,7 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
-  
-  final google_controller =Get.put(LoginController());
+  final controller = Get.put(SignUp_model());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -143,17 +141,8 @@ class _SignupState extends State<Signup> {
                      ),
                   ),
                     onPressed: () {
+                      controller.signInWithGoogleAccount();
                       
-                      if(google_controller.googleAccount.value == null){
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (_) =>const HomeScreen()), 
-                        );
-                      }else{
-                        Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (_) =>const HomeScreen()), 
-                        );
-                      }
-                      google_controller.login();
                     },
                     icon:const  FaIcon(FontAwesomeIcons.google,size: 15,color: Colors.white,),
                     label:const Text('Sign In',

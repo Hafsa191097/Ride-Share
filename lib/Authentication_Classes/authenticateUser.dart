@@ -58,18 +58,6 @@ class AuthenticateUser extends GetxController {
       var credentials= await _auth.signInWithCredential(PhoneAuthProvider.credential(verificationId: verificationId.value, smsCode: otp));
       return credentials.user!=null ? true :false;
     }
-    
-
-    Future<UserCredential> signInWithGoogle() async {
-      
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,
-      );
-      return await FirebaseAuth.instance.signInWithCredential(credential);
-    }
 
     Future<void> signinUserWithEmailAndPassword(String email, String password)async {
       try {
@@ -80,4 +68,15 @@ class AuthenticateUser extends GetxController {
       }catch (_){}
     
     }
+
+    Future<UserCredential> signInWithGoogle() async {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+      return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
 }
