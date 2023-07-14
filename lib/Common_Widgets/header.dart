@@ -1,6 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
-import 'package:ride_share/Screens/SignIn.dart';
 
 class header extends StatelessWidget {
   const header({
@@ -9,7 +8,6 @@ class header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FirebaseAuth auth = FirebaseAuth.instance;
     
     return Material(
       color: Colors.white,

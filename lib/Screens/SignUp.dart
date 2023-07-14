@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ride_share/Screens/registration.dart';
 import 'package:ride_share/Screens/SignIn.dart';
 import 'package:ride_share/Common_Widgets/header.dart';
 import '../model_classes/signup_model.dart';
-import 'HomeScreen.dart';
 import 'Take_phone.dart';
 
 class Signup extends StatefulWidget {
