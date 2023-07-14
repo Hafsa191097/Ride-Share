@@ -9,6 +9,8 @@ import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:ride_share/Screens/SignUp.dart';
 
+import 'Take_phone.dart';
+
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
 
@@ -130,10 +132,11 @@ class _SignInState extends State<SignIn> {
                             ),
                             ),
                             onPressed: () {
-                              // Handle sign in with Twitter button press
+                              SignUp_model.instance.signInWithGoogleAccount();
                             },
-                            icon: const FaIcon(FontAwesomeIcons.facebookF,size: 15,color: Colors.white,),
-                            label: const Text('SignIn with Facebook',
+                            icon:const  FaIcon(FontAwesomeIcons.google,size: 15,color: Colors.white,),
+                    
+                            label: const Text('SignIn with Google',
                               style: TextStyle(
                               fontSize: 15,
                               color: Colors.white,
@@ -155,10 +158,12 @@ class _SignInState extends State<SignIn> {
                                 borderRadius: BorderRadius.circular(30.0),
                             ),
                           ),
-                            onPressed: () {
-                              // Handle sign in with Facebook button press
+                          onPressed: () {
+                              Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(builder: (_) => PhoneNumberPage()), 
+                              );
                             },
-                            icon:  const FaIcon(FontAwesomeIcons.apple,size: 15,color: Colors.white,),
+                            icon:const  FaIcon(FontAwesomeIcons.phone,size: 15,color: Colors.white,),
                             label:const Text('Sign In With Apple',
                               style: TextStyle(
                               fontSize: 15,

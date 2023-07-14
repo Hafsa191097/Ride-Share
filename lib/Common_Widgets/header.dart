@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:ride_share/Screens/SignIn.dart';
 
 class header extends StatelessWidget {
   const header({
@@ -7,6 +9,8 @@ class header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    
     return Material(
       color: Colors.white,
       child:Stack(
@@ -29,8 +33,9 @@ class header extends StatelessWidget {
               ),
           ),
           Container(
-            margin: const EdgeInsets.only(left: 55,top:15,right:55,bottom:80),
+            margin: const EdgeInsets.only(left: 60,top:15,right:60,bottom:50),
             padding: const EdgeInsets.all(45),
+            
             child: Image.asset('images/logo.png'),
           ),
         ],

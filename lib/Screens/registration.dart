@@ -5,6 +5,8 @@ import 'package:ride_share/model_classes/signup_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
+import 'Take_phone.dart';
+
 // ignore: camel_case_types
 class registeration extends StatefulWidget {
   const registeration({super.key});
@@ -159,9 +161,11 @@ class _registerationState extends State<registeration> {
                         ),
                         ),
                         onPressed: () {
-                          // Handle sign in with Twitter button press
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (_) => PhoneNumberPage()), 
+                          );
                         },
-                        icon: const FaIcon(FontAwesomeIcons.apple,size: 15,color: Colors.white,),
+                    icon:const  FaIcon(FontAwesomeIcons.phone,size: 15,color: Colors.white,),
                         label: const Text('SignIn',
                           style: TextStyle(
                           fontSize: 15,
@@ -184,9 +188,10 @@ class _registerationState extends State<registeration> {
                         ),
                       ),
                         onPressed: () {
-                          
+                          SignUp_model.instance.signInWithGoogleAccount();
                         },
-                        icon:  const FaIcon(FontAwesomeIcons.twitter,size: 15,color: Colors.white,),
+                        icon:const  FaIcon(FontAwesomeIcons.google,size: 15,color: Colors.white,),
+                    
                         label:const Text('SignIn',
                           style: TextStyle(
                           fontSize: 15,

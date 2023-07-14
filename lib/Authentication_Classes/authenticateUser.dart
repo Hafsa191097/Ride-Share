@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ride_share/Screens/HomeScreen.dart';
 import 'package:get/get.dart';
 import 'package:ride_share/Screens/SignUp.dart';
@@ -56,6 +57,18 @@ class AuthenticateUser extends GetxController {
     Future<bool> verifyOTP(String otp) async{
       var credentials= await _auth.signInWithCredential(PhoneAuthProvider.credential(verificationId: verificationId.value, smsCode: otp));
       return credentials.user!=null ? true :false;
+    }
+    
+
+    Future<UserCredential> signInWithGoogle() async {
+      
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth?.accessToken,
+        idToken: googleAuth?.idToken,
+      );
+      return await FirebaseAuth.instance.signInWithCredential(credential);
     }
 
     Future<void> signinUserWithEmailAndPassword(String email, String password)async {

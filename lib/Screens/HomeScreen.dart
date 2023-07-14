@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ride_share/Screens/Settings.dart';
 import 'package:ride_share/Screens/DashBoard.dart';
-import 'package:ride_share/Screens/Search.dart';
+import 'package:ride_share/Screens/Profile.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,8 +15,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _screens = [
     const Wallet(),
-    const Settings(),
-    const Search(),
+    const Settingss(),
+    const Profile(),
   ];
 
 
@@ -47,8 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
+            icon: Icon(Icons.person),
+            label: 'Profile',
           ),
         ],
       ),

@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:ride_share/Screens/registration.dart';
 import 'package:ride_share/Screens/SignIn.dart';
 import 'package:ride_share/Common_Widgets/header.dart';
+import '../Authentication_Classes/loginWithGoogle_Controller.dart';
+import '../model_classes/signup_model.dart';
+import 'HomeScreen.dart';
 import 'Take_phone.dart';
 
 class Signup extends StatefulWidget {
@@ -13,6 +19,8 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  
+  final google_controller =Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -135,9 +143,19 @@ class _SignupState extends State<Signup> {
                      ),
                   ),
                     onPressed: () {
-                      // Handle sign in with Facebook button press
+                      
+                      if(google_controller.googleAccount.value == null){
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (_) =>const HomeScreen()), 
+                        );
+                      }else{
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (_) =>const HomeScreen()), 
+                        );
+                      }
+                      google_controller.login();
                     },
-                    icon:const  FaIcon(FontAwesomeIcons.twitter,size: 15,color: Colors.white,),
+                    icon:const  FaIcon(FontAwesomeIcons.google,size: 15,color: Colors.white,),
                     label:const Text('Sign In',
                       style: TextStyle(
                       fontSize: 15,
